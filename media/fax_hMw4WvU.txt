@@ -1,0 +1,5 @@
+This is a test fax.
+This fax is sent by program.
+Thanks.
+Sincerely,
+HaoYang.

@@ -1,0 +1,19 @@
+First, I made miniMax method in Minimax class.
+In method.
+	I checked who is winner in current game board.
+	If computer is winner, according to min-max algorithm, return 1.
+	If people is winner, return -1.
+	If there is no winner, I check if the board is full.
+	If the board is full, since two players tie, return 0.
+	After checking above steps, determine minimum or maximum value according to
+	type of player.
+	And then get successors of current game state and keep tracks of every successor.
+	And get minimum value for people and maximum value for computer among the tracks.
+	Since this value is the best value for player, return this one.
+
+Second, I made findBestBoardMinimax method in GameAi class.
+In method.
+	For getting the best game state, set current value to NEGATIVE_INFINITY.
+	Then get successors of current game state and get best game state of every successor.
+	At these states, select the best.
+	This state is just the target board.
