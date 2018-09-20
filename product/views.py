@@ -36,6 +36,6 @@ def send_fax(request):
     for fax_num in fax_number_list:
         if str(fax_num)[0] != '1':
             fax_num = '1' + str(fax_num)
-        call(['sendfax', '-d', fax_num, fax_file])
+        call(['sendfax', '-T 5', '-d', fax_num, fax_file])
     messages.info(request, 'Sent fax to %d fax numbers.' % len(fax_number_list))
     return redirect('/admin/product/campaign')

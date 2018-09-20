@@ -1,0 +1,12 @@
+#!/bin/bash
+echo $COMMID "-" $SENDTO "-" $FROMADDR "-" $TOADDR "-" $DESTINATION "-"  $WHY "-" $JTIME "-" $NEXT "-" $JOBINFO "-" >> fax-debug.log
+
+if [ "$WHY" == "failed" ]; then
+	/var/lib/asterisk/agi-bin/fax-numbers.pl $DESTINATION
+fi
+
+if [ "$WHY" == "rejected" ]; then
+	/var/lib/asterisk/agi-bin/fax-numbers.pl $DESTINATION
+fi
+
+
