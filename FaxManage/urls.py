@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls.static import static
+from django.conf.urls import url, include
 from django.contrib import admin
 from django.urls import path
 
@@ -21,8 +22,13 @@ from FaxManage import settings
 from product import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    url(r'^jet/', include('jet.urls', 'jet')),
+    url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
+
+    url(r'^', admin.site.urls),
     path('sendfax', views.send_fax),
+    path('delete', views.delete_fax_number),
+
 ] + static(
     settings.STATIC_URL,
     document_root=settings.STATIC_ROOT

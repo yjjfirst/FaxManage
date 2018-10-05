@@ -9,7 +9,7 @@ Type = simple
 Restart=always
 #RestartSec=30
 
-ExecStart = /usr/bin/t38modem -ttt -o /var/log/t38modem.log --no-h323 -u T38modem --sip-listen udp$gw1.sip.us --sip-t38-udptl-redundancy 3 --ptty +/dev/ttyT38-1,+/dev/ttyT38-2,+/dev/ttyT38-3 --route "modem:.*=sip:<dn>@gw1.sip.us" --route "sip:.*=modem:<dn>" --force-fax-mode --force-fax-mode-delay 0  --sip-register 5226636258@gw1.sip.us,h4q7d5uftsamxe4e
+ExecStart = /usr/bin/t38modem -ttt -o /var/log/t38modem.log --no-h323 -u T38modem --sip-listen udp$gw1.sip.us --sip-t38-udptl-redundancy 3 --ptty +/dev/ttyT38-1,+/dev/ttyT38-2,+/dev/ttyT38-3,+/dev/ttyT38-4,+/dev/ttyT38-5,+/dev/ttyT38-6,+/dev/ttyT38-7,+/dev/ttyT38-8,+/dev/ttyT38-9,+/dev/ttyT38-10,+/dev/ttyT38-11,+/dev/ttyT38-12,+/dev/ttyT38-13,+/dev/ttyT38-14,+/dev/ttyT38-15,+/dev/ttyT38-16,+/dev/ttyT38-17,+/dev/ttyT38-18,+/dev/ttyT38-19,+/dev/ttyT38-20,+/dev/ttyT38-21,+/dev/ttyT38-22,+/dev/ttyT38-23,+/dev/ttyT38-24,+/dev/ttyT38-25,+/dev/ttyT38-26,+/dev/ttyT38-27,+/dev/ttyT38-28,+/dev/ttyT38-29,+/dev/ttyT38-30 --route "modem:.*=sip:<dn>@gw1.sip.us" --route "sip:.*=modem:<dn>" --force-fax-mode --force-fax-mode-delay 0  --sip-register 5226636258@gw1.sip.us,h4q7d5uftsamxe4e
 #ExecStart = /usr/bin/t38modem -ttt -o /var/log/t38modem.log --no-h323 -u T38modem --sip-listen udp$127.0.0.1:6060 --sip-t38-udptl-redundancy 3 --ptty +/dev/ttyT38-1,+/dev/ttyT38-2,+/dev/ttyT38-3 --route "modem:.*=sip:<dn>@127.0.0.1" --route "sip:.*=modem:<dn>" --force-fax-mode --force-fax-mode-delay 0  --sip-register 1100@127.0.0.1,pwd
 
 

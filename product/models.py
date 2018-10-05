@@ -16,9 +16,20 @@ class Campaign(models.Model):
     fax = models.FileField(null=True, blank=True)
     fax_number = models.FileField()
 
+    def __str__(self):
+        return self.name
+
 
 class FaxNumber(models.Model):
-    number = models.CharField(max_length=50, unique=True)
+    campaign = models.ManyToManyField(Campaign)
+    number = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.number
+
+
+class DeletedFaxNumber(models.Model):
+    number = models.CharField(max_length=50)
 
     def __str__(self):
         return self.number
@@ -42,9 +53,13 @@ def insert_fax_number(sender, instance, created=False, **kwargs):
             fax_number_list.append(str(sheet.row(row_id)[0].value).split('.')[0])
         print(fax_number_list)
 
+    deleted_fax_numbers = DeletedFaxNumber.objects.all()
+    deleted_fax_numbers = [a.number for a in deleted_fax_numbers]
     try:
         for fax_num in fax_number_list:
-            FaxNumber.objects.get_or_create(number=fax_num)
+            if fax_num in deleted_fax_numbers:
+                continue
+            fax_number, created = FaxNumber.objects.get_or_create(number=fax_num)
+            fax_number.campaign.add(campaign)
     except Exception as e:
         print(e)
-
